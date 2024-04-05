@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 
+    - primary meta tags
+  -->
+    <title>Vraj - I'm Mobile Application Developer.</title>
+    <meta
+      name="title"
+      content="Vraj - I'm Mobile Application Developer."
+    />
+    <meta
+      name="description"
+      content="This is a personal portfolio
+    />
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/svg+xml" />
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+    <!-- 
+    - preload images
+  -->
+    <link rel="preload" as="image" href="./assets/images/hero-banner.jpg" />
+    <link rel="preload" as="image" href="./assets/images/Blog.svg" />
+  </head>
+
+  <body>
+    <!-- 
+    - #HEADER
+  -->
+
+    <header class="header" data-header>
+      <div class="container">
+        <a href="#" class="logo"> Vraj </a>
+
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="#" class="logo">
+              <img
+                src="./assets/images/logo-light.svg"
+                width="64"
+                height="24"
+                alt="Vraj home"
+                
+              />
+            </a>
+
+            <button
+              class="nav-close-btn"
+              aria-label="close menu"
+              data-nav-toggler
+            >
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+
+          <ul class="navbar-list">
+            <li>
+              <a href="#" class="navbar-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#about1" class="navbar-link">About</a>
+            </li>
+
+            <li>
+              <a href="#projects" class="navbar-link">Projects</a>
+            </li>
+
+            <li>
+              <a href="#blogs" class="navbar-link">Blog</a>
+            </li>
+
+            <li>
+              <a href="#contacts" class="navbar-link">Contact</a>
+            </li>
+          </ul>
+
+          <div class="wrapper">
+            <a href="mailto:info@email.com" class="contact-link"
+              >info@email.com</a
+            >
+
+            <a href="tel:001234567890" class="contact-link"
+              >00 (123) 456 78 90</a
+            >
+          </div>
+
+          <ul class="social-list">
+            <li>
+              <a href="https://twitter.com/vraj1084" class="social-link" target="_blank"><i class="ri-twitter-x-fill"></i>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/in/vraj-chauhan/" class="social-link" target="_blank"><i class="ri-linkedin-box-fill"></i>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://medium.com/@vrajc1084" class="social-link" target="_blank"><i class="ri-medium-fill"></i>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://github.com/vrajchauhan10" class="social-link" target="_blank"><i class="ri-github-fill"></i>
+              </a>
+            </li>
+
+            
+          </ul>
+        </nav>
+
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <!-- 
+        - #HERO
+      -->
+
+        <section class="section hero" aria-label="home">
+          <div class="container">
+            <figure class="hero-banner">
+              <img
+                src="./assets/images/hero-banner.jpg"
+                width="560"
+                height="450"
+                alt="Vraj"
+                class="w-100"
+                data-reveal="top"
+              />
+
+              
+            </figure>
+
+            <div class="hero-content">
+              <h2 class="h1 hero-title" data-reveal="top" data-reveal-delay="0.5s">
+                  <span id="title">I am, <span id="role">User Interface Designer & Developer</span><span id="cursor"></span></span>
+              </h2>
+          </div>
+          
+          <script>
+              const roles = ["Mobile Application Developer","Coder", "Data Analyst", "MS Word, Excel & Powerpoint Operator"];
+              let currentIndex = 0;
+                       
+          
+              function typeRole() {
+                  const roleSpan = document.getElementById("role");
+                  const currentRole = roleSpan.textContent;
+                  const targetRole = roles[currentIndex];
+                  const typingSpeed = 150; // Adjust typing speed as needed
+                  const deleteSpeed = 75; // Adjust deletion speed as needed
+          
+                  // Typing animation
+                  for (let i = 0; i <= targetRole.length; i++) {
+                      setTimeout(() => {
+                          roleSpan.textContent = targetRole.slice(0, i);
+                      }, i * typingSpeed);
+                  }
+          
+                  // Delay before deleting
+                  setTimeout(() => {
+                      // Deletion animation
+                      for (let i = targetRole.length; i >= 0; i--) {
+                          setTimeout(() => {
+                              roleSpan.textContent = targetRole.slice(0, i);
+                          }, (targetRole.length - i) * deleteSpeed);
+                      }
+                      // Update currentIndex for the next role
+                      currentIndex = (currentIndex + 1) % roles.length;
+                      // Call typeRole function recursively after the deletion animation completes
+                      setTimeout(typeRole, targetRole.length * deleteSpeed);
+                  }, targetRole.length * typingSpeed);
+              }
+          
+              // Start the typing animation
+              typeRole();
+          </script>
+
+<style>
+  .h1.hero-title {
+      font-family: Arial; /* Same font family as h2 */
+      font-size: 50px;
+  }
+  #title, #role {
+        font-family: Arial; /* Same font family as h2 */
+        font-size: 46px;
+    }
+
+  #role {
+      color: #D16C86; /* Pinkish color for roles */
+      font-weight: bold; /* Make roles bold */
+      font-size: 38px; /* Increase font size for roles */
+
+  }
+
+  
+  @keyframes blinkCursor {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+  }
+</style>
+          
+
+              <p
+                class="section-text"
+                data-reveal="top"
+                data-reveal-delay="0.25s"
+              >
+
+
+              Hello! I'm <strong>Vraj Chauhan</strong> , a passionate Mobile Application Developer dedicated to crafting exceptional digital experiences.
+              </p>
+
+              <div class="btn-wrapper" data-reveal="top" data-reveal-delay="1s">
+                <a href="#projects" class="btn btn-primary">See My Works</a>
+
+                <a href="#contacts" class="btn btn-secondary">Contact Me</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 
+        - #ABOUT
+      -->
+
+        <section class="section about" id="about1" aria-label="about">
+          <div class="container">
+            <div class="wrapper">
+              <div data-reveal="left">
+                <h2 class="h2 section-title">What I Do?</h2>
+
+                <p class="section-text">
+
+                  I specialize in mobile application development, proficient in data analysis, and skilled in Microsoft Word, PowerPoint, and Excel.
+                </p>
+              </div>
+
+              <ul class="progress-list" data-reveal="right">
+                <li class="progress-item">
+                  <div class="label-wrapper">
+                    <p>Efficient In Ms Word, Powerpoint, & excel </p>
+
+                    <span class="span">100 %</span>
+                  </div>
+
+                  <div class="progress">
+                    <div
+                      class="progress-fill"
+                      style="width: 100%; background-color: #c7b1dd"
+                    ></div>
+                  </div>
+                </li>
+
+                <li class="progress-item">
+                  <div class="label-wrapper">
+                    <p>Mobile Development</p>
+
+                    <span class="span">80 %</span>
+                  </div>
+
+                  <div class="progress">
+                    <div
+                      class="progress-fill"
+                      style="width: 80%; background-color: #8caeec"
+                    ></div>
+                  </div>
+                </li>
+
+                <li class="progress-item">
+                  <div class="label-wrapper">
+                    <p>Data Analysis</p>
+
+                    <span class="span">85 %</span>
+                  </div>
+
+                  <div class="progress">
+                    <div
+                      class="progress-fill"
+                      style="width: 85%; background-color: #b0d4c1"
+                    ></div>
+                  </div>
+                </li>
+
+                <li class="progress-item">
+                  <div class="label-wrapper">
+                    <p>Communication and Collaboration</p>
+
+                    <span class="span">90 %</span>
+                  </div>
+
+                  <div class="progress">
+                    <div
+                      class="progress-fill"
+                      style="width: 90%; background-color: #e3a6b6"
+                    ></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <ul class="grid-list">
+              <li data-reveal="bottom">
+                <div class="about-card">
+                  <div class="card-icon">
+                    <img
+                      src="./assets/images/icon-1.svg"
+                      width="52"
+                      height="52"
+                      loading="lazy"
+                      alt="web design icon"
+                    />
+                  </div>
+
+                  <h3 class="h4 card-title">MS Office Work</h3>
+
+                  <p class="card-text">
+                    Proficient in Microsoft Office suite, particularly skilled in PowerPoint with 60+ professional presentations experience.
+                  </p>
+                </div>
+              </li>
+
+              <li data-reveal="bottom" data-reveal-delay="0.25s">
+                <div class="about-card">
+                  <div class="card-icon">
+                    <img
+                      src="./assets/images/icon-2.svg"
+                      width="52"
+                      height="52"
+                      loading="lazy"
+                      alt="mobile design icon"
+                    />
+                  </div>
+
+                  <h3 class="h4 card-title">Mobile Development</h3>
+
+                  <p class="card-text">
+                    Proficient in Java and Kotlin, with extensive experience in Flutter for cross-platform mobile app development. Skilled in  implementing user-friendly applications.
+                  </p>
+                </div>
+              </li>
+
+              <li data-reveal="bottom" data-reveal-delay="0.5s">
+                <div class="about-card">
+                  <div class="card-icon">
+                    <img
+                      src="./assets/images/icon-3.svg"
+                      width="52"
+                      height="52"
+                      loading="lazy"
+                      alt="web development icon"
+                    />
+                  </div>
+
+                  <h3 class="h4 card-title">Data Analysis</h3>
+
+                  <p class="card-text">
+                    Skilled in data analysis, proficient in statistical tools. Capable of deriving actionable insights to inform strategic decision-making and drive business optimization.
+                  </p>
+                </div>
+              </li>
+
+              <li data-reveal="bottom" data-reveal-delay="0.75s">
+                <div class="about-card">
+                  <div class="card-icon">
+                    <img
+                      src="./assets/images/icon-4.svg"
+                      width="52"
+                      height="52"
+                      loading="lazy"
+                      alt="web seo icon"
+                    />
+                  </div>
+
+                  <h3 class="h4 card-title">Communication skiils</h3>
+
+                  <p class="card-text">
+                    Strong communication skills, adept at conveying ideas clearly and persuasively. Capable of fostering effective collaboration and building rapport across diverse teams.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 
+        - #PROJECT
+      -->
+
+        <section class="section project"  id="projects" aria-labelledby="project-label">
+          <div class="container">
+            <div class="title-wrapper" data-reveal="top">
+              <div>
+                <h2 class="h2 section-title" id="project-label">
+                  Latest Projects
+                </h2>
+
+                <p class="section-text">
+                  Check out some of my latest projects with creative ideas.
+                </p>
+              </div>
+
+              <a href="https://github.com/vrajchauhan10?tab=projects" class="btn btn-secondary">See All Projects</a>
+            </div>
+
+            <ul class="grid-list">
+              <li>
+                <div
+                  class="project-card project-card-1"
+                  style="background-color: #f8f5fb"
+                >
+                  <div class="card-content" data-reveal="left">
+                    <p class="card-tag" style="color: #a07cc5">Project 1</p>
+
+                    <h3 class="h3 card-title">ARooms</h3>
+
+                    <p class="card-text">
+                      Visualize products in any room, any size. Experience seamless shopping with immersive AR placement
+                    </p>
+
+                    <a href="https://github.com/vrajchauhan10?tab=projects" class="btn-text" style="color: #a07cc5">
+                      <span class="span">See Project</span>
+
+                      <ion-icon
+                        name="arrow-forward-outline"
+                        aria-hidden="true"
+                      ></ion-icon>
+                    </a>
+                  </div>
+
+                  <figure class="card-banner" data-reveal="right">
+                    <img
+                      src="./assets/images/project-1.png"
+                      width="650"
+                      height="370"
+                      loading="lazy"
+                      alt="Web Design"
+                      class="w-100"
+                    />
+                  </figure>
+                </div>
+              </li>
+
+              <li>
+                <div
+                  class="project-card project-card-2"
+                  style="background-color: #f1f5fd"
+                >
+                  <div class="card-content" data-reveal="right">
+                    <p class="card-tag" style="color: #3f78e0">Project 2</p>
+
+                    <h3 class="h3 card-title">ArtLoop</h3>
+
+                    <p class="card-text">
+                      Discover limitless possibilities with our Flutter-powered wallpaper app. Transform your device with stunning visuals. Choose from an array of wallpapers to personalize your screen.
+                    </p>
+
+                    <a href="https://github.com/vrajchauhan10?tab=projects" class="btn-text" style="color: #3f78e0">
+                      <span class="span">See Project</span>
+
+                      <ion-icon
+                        name="arrow-forward-outline"
+                        aria-hidden="true"
+                      ></ion-icon>
+                    </a>
+                  </div>
+
+                  <figure class="card-banner" data-reveal="left">
+                    <img
+                      src="./assets/images/project-2.png"
+                      width="600"
+                      height="367"
+                      loading="lazy"
+                      alt="Web Design"
+                      class="w-100"
+                    />
+                  </figure>
+                </div>
+              </li>
+
+              <li>
+                <div
+                  class="project-card project-card-3"
+                  style="background-color: #f5faf7"
+                >
+                  <div class="card-content" id=""blog" data-reveal="left">
+                    <p class="card-tag" style="color: #7cb798">My Blog</p>
+
+                    <h3 class="h3 card-title">Edge Computing</h3>
+
+                    <p class="card-text">
+                      In this blog, I delve into the transformative potential of edge computing, exploring its impact on data processing efficiency.                    </p>
+
+                    <a href="https://medium.com/@vrajc1084/edge-computing-dd2dc7c1b47f" class="btn-text" style="color: #7cb798">
+                      <span class="span">See Blog</span>
+
+                      <ion-icon
+                        name="arrow-forward-outline"
+                        aria-hidden="true"
+                      ></ion-icon>
+                    </a>
+                  </div>
+
+                  <figure class="card-banner" data-reveal="right">
+                    <img
+                      src="./assets/images/project-3.png"
+                      width="600"
+                      height="367"
+                      loading="lazy"
+                      alt="Web Design"
+                      class="w-100"
+                    />
+                  </figure>
+                </div>
+              </li>
+
+              <li>
+                <div
+                  class="project-card project-card-4" id="blogs"
+                  style="background-color: #fcf4f6"
+                >
+                  <div class="card-content" data-reveal="left">
+                    <p class="card-tag" style="color: #d16b86">My Blog</p>
+
+                    <h3 class="h3 card-title">Dark Web: Facilitating Cybercrime</h3>
+
+                    <p class="card-text">
+                      Exploring the clandestine realm of the Dark Web and its pivotal role in enabling various forms of cybercrime.
+                    </p>
+
+                    <a href="https://medium.com/@anamika.chovatiya/the-dark-webs-shadowy-influence-unveiling-its-role-in-cybercrime-afa11e400f6c" class="btn-text" style="color: #d16b86">
+                      <span class="span">See blog</span>
+
+                      <ion-icon
+                        name="arrow-forward-outline"
+                        aria-hidden="true"
+                      ></ion-icon>
+                    </a>
+                  </div>
+
+                  <figure class="card-banner" data-reveal="right">
+                    <img
+                      src="./assets/images/project-4.png"
+                      width="600"
+                      height="367"
+                      loading="lazy"
+                      alt="Mobile Design"
+                      class="w-100"
+                    />
+                  </figure>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+
+
+
+      
+        <!-- 
+        - #CONTACT
+      -->
+
+        <section class="section contact" id="contacts" aria-label="contact">
+          <div class="container">
+            <div class="contact-card">
+              <div class="contact-content" data-reveal="left">
+                <div class="card-icon">
+                  <img
+                    src="./assets/images/icon-5.svg"
+                    width="44"
+                    height="44"
+                    loading="lazy"
+                    alt="envelop icon"
+                  />
+                </div>
+
+                <h2 class="h2 section-title">
+                  If you like what you see, let's work together.
+                </h2>
+
+                <p class="section-text">
+                  Have any questions? Reach out to me from this contact form and
+                  I will get back to you shortly.
+                </p>
+              </div>
+
+              <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="0b678c76-8b40-487c-968f-2619de6b5843">
+                <div class="input-wrapper">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name "
+                        required
+                        class="input-field"
+                    />
+                  <input
+                    type="email"
+                    name="email_address"
+                    placeholder="Email "
+                    required
+                    class="input-field"
+                  />
+                </div>
+
+                <textarea
+                  name="message"
+                  placeholder="Message "
+                  required
+                  class="input-field"
+                ></textarea>
+
+                <button type="submit" class="btn btn-secondary">
+                  Send message
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <!-- 
+    - #FOOTER
+  -->
+
+    <footer class="footer"> 
+      <div class="container">
+        <p class="copyright">Vraj Chauhan</p>
+
+        <ul class="social-list">
+          <li>
+            <a href="https://twitter.com/vraj1084" class="social-link" target="_blank"><i class="ri-twitter-x-fill"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.linkedin.com/in/vraj-chauhan/" class="social-link" target="_blank"><i class="ri-linkedin-box-fill"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://medium.com/@vrajc1084" class="social-link" target="_blank"><i class="ri-medium-fill"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/vrajchauhan10" class="social-link" target="_blank"><i class="ri-github-fill"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- 
+    - custom js link
+  -->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- 
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
